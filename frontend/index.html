@@ -1,0 +1,675 @@
+<!doctype html>
+
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Spotify Quiz
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         GLOBAL GLITTER BACKGROUND
+         ================================================== -->
+
+    <div
+        id="globalGlitterBackground"
+        class="global-glitter-background"
+    ></div>
+
+
+    <!-- ==================================================
+         FLOATING HOME BUTTON
+         ================================================== -->
+
+    <div
+        id="homeButtonShell"
+        class="
+            liquid-metal-shell
+            liquid-metal-small
+            floating-home
+        "
+        data-liquid-metal
+        hidden
+    >
+
+        <div
+            class="liquid-metal-shader"
+        ></div>
+
+        <div
+            class="liquid-metal-inner"
+        ></div>
+
+        <button
+            id="homeButton"
+            class="liquid-metal-control"
+        >
+            ← Home
+        </button>
+
+    </div>
+
+
+    <main>
+
+
+        <!-- ==================================================
+             HOME
+             ================================================== -->
+
+        <section
+            id="homeView"
+            class="view home-view"
+        >
+
+            <div class="home-content">
+
+
+                <p class="eyebrow">
+                    Spotify Quiz
+                </p>
+
+
+                <h1 class="hero-title">
+                    Was willst du
+                    heute erraten?
+                </h1>
+
+
+                <p class="hero-subtitle">
+                    Playlist auswählen.
+                    Musik hören.
+                    Wissen testen.
+                </p>
+
+
+                <div
+                    id="spotifyConnection"
+                    class="spotify-connection"
+                >
+
+                    <span
+                        id="connectionStatus"
+                    >
+                        Spotify nicht verbunden
+                    </span>
+
+
+                    <div
+                        id="loginButtonShell"
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-medium
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="loginButton"
+                            class="liquid-metal-control"
+                        >
+                            Spotify verbinden
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mode-grid">
+
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-mode
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="openSongsGame"
+                            class="
+                                liquid-metal-control
+                                mode-liquid-control
+                            "
+                        >
+
+                            <strong>
+                                Songs raten
+                            </strong>
+
+                            <span>
+                                Titel & Interpret
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-mode
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="openYearGame"
+                            class="
+                                liquid-metal-control
+                                mode-liquid-control
+                            "
+                        >
+
+                            <strong>
+                                Jahr raten
+                            </strong>
+
+                            <span>
+                                Erscheinungsjahr
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SONGS PLAYLIST SELECTION
+             ================================================== -->
+
+        <section
+            id="songsSetupView"
+            class="view setup-view"
+            hidden
+        >
+
+            <div class="setup-content">
+
+
+                <p class="eyebrow">
+                    Songs raten
+                </p>
+
+
+                <h2>
+                    Deine Playlist.
+                </h2>
+
+
+                <p class="setup-description">
+                    Füge die Spotify URL ein
+                    und wir kümmern uns um den Rest.
+                </p>
+
+
+                <form
+                    id="songsPlaylistForm"
+                    class="playlist-form"
+                >
+
+                    <input
+                        id="songsPlaylistInput"
+                        type="text"
+                        placeholder="https://open.spotify.com/playlist/..."
+                        autocomplete="off"
+                    >
+
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-medium
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            type="submit"
+                            class="liquid-metal-control"
+                        >
+                            Spiel starten
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+
+                <p
+                    id="songsSetupStatus"
+                    class="subtle-status"
+                ></p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SONGS GAME
+             ================================================== -->
+
+        <section
+            id="songsGameView"
+            class="view songs-game-view"
+            hidden
+        >
+
+            <div class="songs-game-content">
+
+
+                <p
+                    id="songsCounter"
+                    class="game-counter"
+                ></p>
+
+
+                <!-- COMPACT REVEAL -->
+
+                <div
+                    id="songsReveal"
+                    class="song-reveal"
+                    hidden
+                >
+
+                    <img
+                        id="songsRevealCover"
+                        class="song-reveal-cover"
+                        alt="Album cover"
+                    >
+
+
+                    <div class="song-reveal-copy">
+
+                        <h3
+                            id="songsRevealTitle"
+                        ></h3>
+
+
+                        <p
+                            id="songsRevealArtist"
+                            class="song-reveal-artist"
+                        ></p>
+
+
+                        <p
+                            id="songsRevealYear"
+                            class="song-reveal-year"
+                        ></p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="songs-game-controls">
+
+
+                    <!-- PLAY -->
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="songsPlayButton"
+                            class="liquid-metal-control"
+                        >
+                            Pause
+                        </button>
+
+                    </div>
+
+
+                    <!-- SKIP -->
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="songsSkipButton"
+                            class="liquid-metal-control"
+                            disabled
+                        >
+                            Überspringen
+                        </button>
+
+                    </div>
+
+
+                    <!-- REVEAL -->
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="songsRevealButton"
+                            class="liquid-metal-control"
+                            disabled
+                        >
+                            Song anzeigen
+                        </button>
+
+                    </div>
+
+
+                    <!-- PLAYLIST -->
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="songsNewPlaylistButton"
+                            class="liquid-metal-control"
+                        >
+                            Andere Playlist
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <p
+                    id="songsStatus"
+                    class="subtle-status"
+                ></p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             JAHR RATEN
+             ================================================== -->
+
+        <section
+            id="yearView"
+            class="view year-view"
+            hidden
+        >
+
+            <div class="year-content">
+
+
+                <p class="eyebrow">
+                    Jahr raten
+                </p>
+
+
+                <h2>
+                    Welches Jahr war es?
+                </h2>
+
+
+                <input
+                    id="yearPlaylistInput"
+                    class="year-playlist-input"
+                    type="text"
+                    placeholder="Spotify Playlist URL"
+                >
+
+
+                <div class="year-controls">
+
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="yearPlayButton"
+                            class="liquid-metal-control"
+                        >
+                            Start
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="yearNextButton"
+                            class="liquid-metal-control"
+                            disabled
+                        >
+                            Nächster Song
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="
+                            liquid-metal-shell
+                            liquid-metal-game
+                        "
+                        data-liquid-metal
+                    >
+
+                        <div
+                            class="liquid-metal-shader"
+                        ></div>
+
+                        <div
+                            class="liquid-metal-inner"
+                        ></div>
+
+                        <button
+                            id="yearResetButton"
+                            class="liquid-metal-control"
+                            disabled
+                        >
+                            Neue Playlist
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="year-timer">
+
+                    <span>
+                        Countdown
+                    </span>
+
+                    <strong
+                        id="yearCountdown"
+                    >
+                        –
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="yearChoices"
+                    class="year-grid"
+                ></div>
+
+
+                <div
+                    id="yearResult"
+                    class="year-result"
+                    hidden
+                ></div>
+
+
+                <p
+                    id="yearStatus"
+                    class="subtle-status"
+                >
+                    Playlist einfügen und Start drücken.
+                </p>
+
+
+                <p
+                    id="yearCounter"
+                    class="game-counter"
+                ></p>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script
+        type="module"
+        src="/app.js"
+    ></script>
+
+
+</body>
+
+</html>

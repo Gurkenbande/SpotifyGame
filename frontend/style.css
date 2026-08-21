@@ -1,0 +1,1462 @@
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+* {
+    box-sizing:
+        border-box;
+}
+
+
+html,
+body {
+    margin:
+        0;
+
+    width:
+        100%;
+
+    min-height:
+        100%;
+
+    background:
+        #000;
+}
+
+
+body {
+    overflow-x:
+        hidden;
+
+    color:
+        #fff;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+button,
+input {
+    font:
+        inherit;
+}
+
+
+[hidden] {
+    display:
+        none !important;
+}
+
+
+/* ==========================================================
+   GLOBAL GLITTER
+   ========================================================== */
+
+.global-glitter-background {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        0;
+
+    width:
+        100vw;
+
+    height:
+        100vh;
+
+    pointer-events:
+        none;
+
+    background:
+        #000;
+
+    opacity:
+        0.74;
+}
+
+
+.global-glitter-background canvas {
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+}
+
+
+/* ==========================================================
+   APP LAYOUT
+   ========================================================== */
+
+main {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        100%;
+}
+
+
+.view {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+}
+
+
+/* ==========================================================
+   FLOATING HOME
+   ========================================================== */
+
+.floating-home {
+    position:
+        fixed !important;
+
+    top:
+        24px;
+
+    left:
+        24px;
+
+    z-index:
+        100;
+}
+
+
+/* ==========================================================
+   HOME
+   ========================================================== */
+
+.home-view {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        70px 30px;
+}
+
+
+.home-content {
+    width:
+        min(
+            820px,
+            100%
+        );
+
+    text-align:
+        center;
+}
+
+
+.eyebrow {
+    margin:
+        0 0 14px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.hero-title {
+    max-width:
+        780px;
+
+    margin:
+        0 auto;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            86px
+        );
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.045em;
+
+    font-weight:
+        600;
+
+    text-shadow:
+        0 8px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.8
+        );
+}
+
+
+.hero-subtitle {
+    margin:
+        24px auto 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    font-size:
+        15px;
+
+    letter-spacing:
+        0.03em;
+}
+
+
+.spotify-connection {
+    margin-top:
+        34px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+    font-size:
+        12px;
+}
+
+
+.mode-grid {
+    margin-top:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        24px;
+}
+
+
+/* ==========================================================
+   SETUP
+   ========================================================== */
+
+.setup-view {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        90px 30px;
+}
+
+
+.setup-content {
+    width:
+        min(
+            720px,
+            100%
+        );
+
+    text-align:
+        center;
+}
+
+
+.setup-content h2 {
+    margin:
+        0;
+
+    font-size:
+        clamp(
+            44px,
+            6vw,
+            74px
+        );
+
+    font-weight:
+        550;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+.setup-description {
+    margin:
+        18px 0 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+}
+
+
+.playlist-form {
+    margin-top:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        14px;
+}
+
+
+.playlist-form input,
+.year-playlist-input {
+    width:
+        min(
+            480px,
+            100%
+        );
+
+    height:
+        50px;
+
+    padding:
+        0 20px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.24
+        );
+
+    border-radius:
+        100px;
+
+    outline:
+        none;
+
+    color:
+        #fff;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.045
+        );
+
+    backdrop-filter:
+        blur(14px);
+
+    box-shadow:
+        inset
+        0 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    transition:
+        border-color
+        150ms ease,
+        background
+        150ms ease;
+}
+
+
+.playlist-form input:focus,
+.year-playlist-input:focus {
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.07
+        );
+}
+
+
+.playlist-form input::placeholder,
+.year-playlist-input::placeholder {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.28
+        );
+}
+
+
+/* ==========================================================
+   SONG GAME
+   ========================================================== */
+
+.songs-game-view {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        80px 30px 50px;
+}
+
+
+.songs-game-content {
+    width:
+        min(
+            1000px,
+            100%
+        );
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        28px;
+
+    text-align:
+        center;
+}
+
+
+.game-counter {
+    margin:
+        0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.53
+        );
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.20em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* ==========================================================
+   COMPACT SONG REVEAL
+   ========================================================== */
+
+.song-reveal {
+    min-height:
+        110px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+
+    text-align:
+        left;
+
+    animation:
+        reveal-in
+        320ms ease-out;
+}
+
+
+@keyframes reveal-in {
+
+    from {
+        transform:
+            translateY(8px);
+
+        opacity:
+            0;
+    }
+
+
+    to {
+        transform:
+            translateY(0);
+
+        opacity:
+            1;
+    }
+}
+
+
+.song-reveal-cover {
+    width:
+        96px;
+
+    height:
+        96px;
+
+    flex:
+        0 0 96px;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(
+            0,
+            0,
+            0,
+            0.55
+        );
+}
+
+
+.song-reveal-copy {
+    max-width:
+        480px;
+}
+
+
+.song-reveal-copy h3 {
+    margin:
+        0;
+
+    font-size:
+        clamp(
+            20px,
+            2.1vw,
+            27px
+        );
+
+    line-height:
+        1.12;
+
+    font-weight:
+        550;
+
+    letter-spacing:
+        -0.02em;
+}
+
+
+.song-reveal-artist {
+    margin:
+        7px 0 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.68
+        );
+
+    font-size:
+        15px;
+}
+
+
+.song-reveal-year {
+    margin:
+        9px 0 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.42
+        );
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.14em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.songs-game-controls {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        18px;
+}
+
+
+.subtle-status {
+    min-height:
+        18px;
+
+    margin:
+        0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.40
+        );
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        0.02em;
+}
+
+
+/* ==========================================================
+   LIQUID METAL
+   ========================================================== */
+
+.liquid-metal-shell {
+    position:
+        relative;
+
+    perspective:
+        1000px;
+
+    transform-style:
+        preserve-3d;
+
+    border-radius:
+        100px;
+
+    transition:
+        transform
+        150ms ease,
+        opacity
+        150ms ease,
+        filter
+        150ms ease;
+}
+
+
+.liquid-metal-small {
+    width:
+        108px;
+
+    height:
+        42px;
+}
+
+
+.liquid-metal-medium {
+    width:
+        170px;
+
+    height:
+        50px;
+}
+
+
+.liquid-metal-game {
+    width:
+        180px;
+
+    height:
+        50px;
+}
+
+
+.liquid-metal-mode {
+    width:
+        310px;
+
+    height:
+        145px;
+
+    border-radius:
+        28px;
+}
+
+
+.liquid-metal-mode
+.liquid-metal-shader,
+.liquid-metal-mode
+.liquid-metal-inner,
+.liquid-metal-mode
+.liquid-metal-control,
+.liquid-metal-mode
+.liquid-metal-shader canvas {
+    border-radius:
+        28px !important;
+}
+
+
+/* ==========================================================
+   METAL SHADER
+   ========================================================== */
+
+.liquid-metal-shader {
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        1;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        100px;
+}
+
+
+.liquid-metal-shader canvas {
+    position:
+        absolute !important;
+
+    inset:
+        0 !important;
+
+    display:
+        block !important;
+
+    width:
+        100% !important;
+
+    height:
+        100% !important;
+
+    border-radius:
+        100px !important;
+}
+
+
+/* ==========================================================
+   DARK INTERIOR
+   ========================================================== */
+
+.liquid-metal-inner {
+    position:
+        absolute;
+
+    inset:
+        2px;
+
+    z-index:
+        2;
+
+    border-radius:
+        100px;
+
+    pointer-events:
+        none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(
+                33,
+                33,
+                36,
+                0.92
+            )
+            0%,
+            rgba(
+                3,
+                3,
+                4,
+                0.96
+            )
+            100%
+        );
+}
+
+
+/* ==========================================================
+   BUTTON
+   ========================================================== */
+
+.liquid-metal-control {
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        4;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    padding:
+        0 18px;
+
+    overflow:
+        hidden;
+
+    border:
+        none;
+
+    border-radius:
+        100px;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.88
+        );
+
+    font-size:
+        13px;
+
+    cursor:
+        pointer;
+
+    text-shadow:
+        0 1px 2px
+        rgba(
+            0,
+            0,
+            0,
+            0.8
+        );
+}
+
+
+.mode-liquid-control {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+}
+
+
+.mode-liquid-control strong {
+    font-size:
+        26px;
+
+    font-weight:
+        500;
+}
+
+
+.mode-liquid-control span {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        0.04em;
+}
+
+
+/* ==========================================================
+   METAL INTERACTIONS
+   ========================================================== */
+
+.liquid-metal-shell.is-hovered {
+    transform:
+        translateY(-2px);
+
+    filter:
+        drop-shadow(
+            0 12px 18px
+            rgba(
+                255,
+                255,
+                255,
+                0.08
+            )
+        );
+}
+
+
+.liquid-metal-shell.is-pressed {
+    transform:
+        translateY(1px)
+        scale(0.98);
+}
+
+
+.liquid-metal-shell.is-disabled {
+    opacity:
+        0.28;
+
+    filter:
+        grayscale(1);
+}
+
+
+.liquid-metal-shell.is-disabled
+.liquid-metal-control {
+    cursor:
+        not-allowed;
+}
+
+
+/* ==========================================================
+   RIPPLE
+   ========================================================== */
+
+.liquid-metal-ripple {
+    position:
+        absolute;
+
+    z-index:
+        3;
+
+    width:
+        20px;
+
+    height:
+        20px;
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                255,
+                255,
+                255,
+                0.45
+            )
+            0%,
+            rgba(
+                255,
+                255,
+                255,
+                0
+            )
+            70%
+        );
+
+    animation:
+        liquid-ripple
+        600ms ease-out
+        forwards;
+}
+
+
+@keyframes liquid-ripple {
+
+    from {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(0);
+
+        opacity:
+            0.7;
+    }
+
+
+    to {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(4);
+
+        opacity:
+            0;
+    }
+}
+
+
+/* ==========================================================
+   YEAR GAME
+   ========================================================== */
+
+.year-view {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        90px 30px 50px;
+}
+
+
+.year-content {
+    width:
+        min(
+            800px,
+            100%
+        );
+
+    text-align:
+        center;
+}
+
+
+.year-content h2 {
+    margin:
+        0 0 30px;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            68px
+        );
+
+    font-weight:
+        550;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+.year-playlist-input {
+    margin:
+        0 auto;
+}
+
+
+.year-controls {
+    margin-top:
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        14px;
+}
+
+
+.year-timer {
+    margin:
+        38px 0 18px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+    font-size:
+        13px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.14em;
+}
+
+
+#yearCountdown {
+    margin-left:
+        12px;
+
+    color:
+        #fff;
+
+    font-size:
+        32px;
+}
+
+
+.year-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap:
+        14px;
+
+    margin:
+        26px auto;
+
+    max-width:
+        650px;
+}
+
+
+.year-choice {
+    min-height:
+        110px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.20
+        );
+
+    border-radius:
+        18px;
+
+    color:
+        #fff;
+
+    background:
+        rgba(
+            10,
+            10,
+            12,
+            0.68
+        );
+
+    backdrop-filter:
+        blur(14px);
+
+    font-size:
+        28px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform
+        150ms ease,
+        border-color
+        150ms ease,
+        background
+        150ms ease;
+}
+
+
+.year-choice:hover:not(:disabled) {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+}
+
+
+.year-choice:disabled {
+    opacity:
+        0.38;
+
+    cursor:
+        not-allowed;
+}
+
+
+.year-result {
+    margin:
+        24px auto;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.82
+        );
+
+    font-size:
+        17px;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (
+    max-width: 720px
+) {
+
+    .floating-home {
+        top:
+            16px;
+
+        left:
+            16px;
+    }
+
+
+    .home-view,
+    .setup-view,
+    .songs-game-view,
+    .year-view {
+        padding-left:
+            20px;
+
+        padding-right:
+            20px;
+    }
+
+
+    .hero-title {
+        font-size:
+            48px;
+    }
+
+
+    .mode-grid {
+        flex-direction:
+            column;
+    }
+
+
+    .liquid-metal-mode {
+        width:
+            min(
+                330px,
+                88vw
+            );
+    }
+
+
+    .playlist-form {
+        flex-direction:
+            column;
+    }
+
+
+    .songs-game-controls {
+        flex-direction:
+            column;
+    }
+
+
+    .liquid-metal-game {
+        width:
+            min(
+                260px,
+                80vw
+            );
+    }
+
+
+    .song-reveal {
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+    }
+
+
+    .song-reveal-cover {
+        width:
+            84px;
+
+        height:
+            84px;
+
+        flex-basis:
+            84px;
+    }
+
+
+    .year-grid {
+        grid-template-columns:
+            1fr;
+    }
+}
